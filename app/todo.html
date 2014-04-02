@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN" ng-app="TodoList">
+<head>
+	<meta charset="UTF-8">
+	<title>To Do List</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../static/todo/css/todo.css" type="text/css">
+	<!--[if lt IE 9]>
+	<script src="static/todo/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="wrapper">
+		<header class="head">
+			<h1>To Do List</h1>
+		</header>
+		<section class="m-todo" ng-controller="todoControler">
+			<div class="u-batch">
+	        	<div class="opt deleteDone" ng-click="deleteDone()">清除已完成事项</div>
+	        	<div class="opt deleteAll" ng-click="deleteAll()">清除所有事项</div>
+	        	<div class="remain">{{remain() + "/" + todoList.length}}</div>
+	        </div>
+			<div class="u-new">
+	        	<input type="text" ng-model="todoInput" placeholder="添加待办事项" ng-keypress="keypress($event)"/>
+	        </div>
+	        <div class="u-item done-{{todo.done}}" ng-repeat="todo in todoList">
+	        	<div class="done" ng-click="todo.change()"></div>
+	        	<div class="delete" ng-click="remove(todo)" onselectstart="return false"></div>
+	        	<div class="info">{{todo.text}}</div>
+	        </div>
+	    </section>
+	</div>
+	<script type="text/javascript" src="../sea-modules/seajs/seajs/2.2.1/sea.js"></script>
+	<script type="text/javascript">
+		seajs.config({
+			base: "../sea-modules/",
+			alias: {
+				"angularjs": "angular/angularjs/1.2.3/angular.js"
+			}
+		});
+		seajs.use("../static/todo/js/main.min.js");
+	</script>
+</body>
+</html>
