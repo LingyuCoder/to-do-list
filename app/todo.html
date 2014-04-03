@@ -15,7 +15,7 @@
 		<header class="head">
 			<h1>To Do List</h1>
 		</header>
-		<section class="m-todo" ng-controller="todoControler">
+		<section id="todo" style="display:none" class="m-todo" ng-controller="todoControler">
 			<div class="u-batch">
 	        	<div class="opt deleteDone" ng-click="deleteDone()">清除已完成事项</div>
 	        	<div class="opt deleteAll" ng-click="deleteAll()">清除所有事项</div>
@@ -37,7 +37,8 @@
 			base: "../sea-modules/",
 			alias: {
 				"angularjs": "angular/angularjs/1.2.3/angular.js"
-			}
+			},
+			preload: ["angularjs"]
 		});
 		seajs.use("../static/todo/js/main.min.js");
 	</script>

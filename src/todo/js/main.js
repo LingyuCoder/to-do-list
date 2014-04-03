@@ -107,5 +107,6 @@ define("../static/todo/js/main.min.js", function(require, exports) {
 				};
 
 				$scope.getFromStorage();
+				angular.element(document.getElementById("todo")).css("display", "block");
 			});
 });
