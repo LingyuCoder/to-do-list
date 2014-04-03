@@ -12,9 +12,9 @@ body {
 }
 
 .wrapper {
-	max-width: 600px;
+	max-width: 36em;
 	margin: auto;
-	padding: 20px;
+	padding: 1em;
 }
 
 .head {
